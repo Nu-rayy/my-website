@@ -1,0 +1,512 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: Montserrat;
+}
+
+*::selection{
+    background-color: #fff;
+    color: #95C11E;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    /* perspective: 800px; */
+}
+
+/* ==========================Scrollbar====================================== */
+body::-webkit-scrollbar{
+    display: block;
+    width: 6px;
+    background-color: #95C11E;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+/* ============================Nav Bar===================================== */
+.nav{
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    padding: 0px 100px;
+    /* background-color: red; */
+    display: flex;
+    gap: 45px;
+    align-items: center;
+    justify-self: flex-start;
+    z-index: 99;
+}
+
+.nav img{
+    height: 80px;
+    /* width: 20px; */
+}
+
+.nav h4{
+    text-transform: uppercase;
+    font-weight: 500px;
+}
+
+.cursor{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #95C11E;
+    position: fixed;
+    z-index: 99;
+}
+
+.cursor-blur{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: #96c11e77;
+    position: fixed;
+    z-index: 99;
+    filter:blur(50px);
+    z-index: 9;
+}
+
+video{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+.page1{
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* .page h1 ko position reltaive dainy sy ::before k content display howa hia */
+.page1 h1{
+    position: relative;
+    font-size: 90px;
+    font-weight: 900;
+}
+
+.page1 h1::before{
+    content: "Fun. Get. Go.";
+    color: black;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    -webkit-text-stroke: 2px  #95C11E;
+    /* z-index:-1; dainy sy yh content hq k back py gaya hai */
+    z-index: -1;
+}
+.page1 h2{
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.page1 p{
+    width: 45%;
+    font-size: 16px;
+}
+
+.page1 .arrow{
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid #95C11E;
+    display: flex;
+    left: 0%;
+    bottom: 0%;
+    transition: all ease .5;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    z-index: 9;
+    border-radius: 50%;
+}
+
+.page1 .arrow:hover{
+    scale: .4;
+    background-color: #95C11E;
+}
+
+.arrow i{
+    font-size: 50px;
+    font-weight: 100px;
+}
+
+
+/* =============================================================================== */
+.page2{
+    min-height: 100vh;
+    /* min-height is lie di hai k pictures k background mn video chal rhi thi */
+    width: 100%;
+    z-index: 10;
+    /* background-color: red; */
+}
+
+.scroller{
+    white-space: nowrap;
+    position: relative;
+    /* background-color: red; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 10;
+    
+}
+.scroller h4{
+    display: inline-block;
+    font-size: 90px;
+    font-weight: 950px;
+    /* font-family: gilroy; */
+    -webkit-text-stroke: 2px #e7eae0;
+    color: transparent;
+    margin-right: 10px;
+    color: #000;
+    transition: all  0.5 ease-in;
+}
+.scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller-in h4:hover{
+    color: #95C11E;
+}
+.scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* ================================About Us=================================== */
+
+.about-us{
+    /* position:relative; ans z-index:99; is lie daini hai k blur peechy jae and text opr and cursor us sy b opr  */
+    width: 100%;
+    /* z-index: 99; */
+    height: 40vh;
+    display: flex;
+    margin-top: 75px;
+    padding: 0px 45px;
+    z-index: 9;
+    /* z-index dainy sy About nav ar k neechy gayaa hai */
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+.about-us img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.about-us-in{
+    text-align: center;
+}
+.about-us-in h3{
+    font-size: 45px;
+    font-weight: 800px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+.about-us-in p{
+    /* width: 50%; */
+    margin-left: 40px;
+    margin-right: 30px;   
+    margin-bottom: 20px;
+}
+
+/* =================================Cards========================== */
+
+.cards-container{
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    z-index: 10;
+    /* background-color: red; */
+}
+.card{
+    height: 80%;
+    width: 23%;
+    overflow: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    transition: all ease .5s;
+    /* background-position: center; */
+    /* background-color: tomato; */
+}
+.card:hover{
+    
+    /* -=-=-=-=-=-=-=-=-=-=-=NEW PROPERTY =-=-=-=-=-=-=-=-=-=*/
+    transform: rotate3d(-1,1,0,20deg);
+    /* transform:rorate3d(x-axis, y-axis, z-axis, degree); */
+}
+#card1{
+    background-image: url("../img/t1.jpeg");
+    background-position: right;
+    background-size: cover;
+}
+#card2{
+    background-image: url("../img/t2.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+#card3{
+    background-image: url("../img/t3.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    padding-top: 130px;
+    background-color: #95C11E;
+    transition: all ease .3s;
+    opacity: 0;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.overlay h3{
+    color: #000;
+    white-space: nowrap;
+}
+.overlay p{
+    color: #000;
+}
+
+.green-div{
+    position: relative;
+    height: 30vh;
+    display: flex;
+    align-items: center;    
+    justify-content: space-between;
+    margin-top: 40px;
+    background: linear-gradient(to right bottom, #A5D622 , #25A436);
+    /* background-color: red; */
+}
+
+.green-div h3{
+    /* position: absolute; */
+    width: 50%;
+    z-index: 9;
+    font-size: 23px;
+    text-align: center;
+}
+
+.green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 14%;
+    z-index: 9;
+}
+
+.page3{
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* z-index: ; */
+}
+
+.page3 p{
+    width: 60%;
+    font-size: 30px;
+}
+
+.page3 img{
+    position: absolute;
+    height: 30px;
+}
+
+.page3 #colon1{
+    top: 20%;
+    left: 15%;
+}
+
+.page3 #colon2{
+    bottom: 25%;
+    right: 15%;
+}
+/* ==================================================================== */
+.page4{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background-color: red; */
+    gap: 40px;
+}
+
+.elem {
+    width: 26%;
+    height: 70%;
+    /* background-color: #95C11E; */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 9;
+    /* isko relative dainy sy green color jo h2 ko dia tha wo adjust howa hai*/
+}
+
+.elem h2{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    background-color: #95C11E;
+}
+
+.elem img{
+    width: 100%;
+    height: 100%;
+    scale: 1;
+    object-fit: cover;
+}
+
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+
+.elem:hover img{
+    scale:1.1;
+}
+
+.page4 h1{
+    position: absolute;
+    font-size: 70px;
+    color: #000;
+    -webkit-text-stroke: 1px #fff;
+    top: -12%;
+    z-index: 9;
+    text-transform: uppercase;
+}
+
+/* ================================================== */
+.footer{
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    background:linear-gradient(to left bottom, #A5D622 , #25A436 );
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
+    padding: 0px 100px;
+}
+
+.footer>img{
+    height: 100%;
+    left:0%; 
+    position: absolute;
+    /* z-index: 0; */
+}
+
+.f4>img{
+    height: 100px;
+    /* width: 40%; */
+}
+
+.f1, .f2, .f3{
+    width: fit-content;
+    white-space: nowrap;
+    z-index: 99;
+}
+
+.f1 h2{
+    font-size: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.f2 h2{
+    font-size: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.f3 h3{
+    font-size: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    line-height: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* annimaion for scroller class .scoller-in */
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
